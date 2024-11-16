@@ -1,4 +1,4 @@
-?php
+<?php
 // Include function page
 include_once('lib/functions/userFunction.php');
 
@@ -7,7 +7,7 @@ if (isset($_POST['btnLogin'])) {
     echo($result);
 }
 ?>
-
+>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,3 +26,22 @@ if (isset($_POST['btnLogin'])) {
                 <div class="card-header" style="color:white">
                     Login Section
                 </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        <div class="form-group mt-3">
+                            <label for="" style="color:white">Enter your User Name</label>
+                            <input type="text" name="userName" id="userName" class="form-control">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="" style="color:white">Enter your Password</label>
+                            <input type="password" name="userPass" id="userPass" class="form-control">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="submit" name="btnLogin" value="Login" class="btn btn-outline-warning btn-sm">
+                        </div>
+                    </form>
+                </div>
+                </div>
+                </div>
+</body>
+</html>
