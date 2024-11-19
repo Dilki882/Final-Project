@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile - Health & Fitness Tracker</title>
-    <link rel="stylesheet" href="profile.css">
+    <title>Goals - Health & Fitness Tracker</title>
+    <link rel="stylesheet" href="goals.css">
     <style>
         /* Global Styles */
 * {
@@ -63,14 +63,14 @@ header nav ul li a.active {
     text-decoration: underline;
 }
 
-/* Profile Section */
-.profile-section {
+/* Goals Section */
+.goals-section {
     padding: 60px 20px;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.profile-section .container {
+.goals-section .container {
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -88,41 +88,70 @@ p {
     margin-bottom: 40px;
 }
 
-/* Profile Overview */
-.profile-overview {
+/* Goals List */
+.goals-list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px;
     margin-bottom: 40px;
 }
 
-.profile-card {
+.goal-card {
     background-color: #f9f9f9;
     padding: 30px;
-    width: 22%;
+    width: 30%;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-bottom: 20px;
     transition: all 0.3s ease;
 }
 
-.profile-card:hover {
+.goal-card:hover {
     transform: translateY(-10px);
 }
 
-.profile-card h3 {
+.goal-card h3 {
     font-size: 1.8em;
     margin-bottom: 15px;
 }
 
-.profile-card p {
-    font-size: 1.5em;
-    color: #333;
+.goal-card p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
 }
 
-/* Edit Profile Form */
-.edit-profile {
+.progress {
+    background-color: #ddd;
+    border-radius: 5px;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    background-color: #4CAF50;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Add New Goal Section */
+.add-goal {
     background-color: #f9f9f9;
     padding: 30px;
     border-radius: 8px;
@@ -130,50 +159,33 @@ p {
     margin-top: 40px;
 }
 
-.edit-profile h3 {
+.add-goal h3 {
     font-size: 2em;
     margin-bottom: 20px;
 }
 
-.edit-profile form {
+.add-goal form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.edit-profile label {
+.add-goal label {
     font-size: 1.2em;
     color: #555;
 }
 
-.edit-profile input,
-.edit-profile select {
+.add-goal input {
     padding: 10px;
     font-size: 1.1em;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-.edit-profile input:focus,
-.edit-profile select:focus {
+.add-goal input:focus {
     border-color: #4CAF50;
 }
 
-.edit-profile .btn {
-    background-color: #4CAF50;
-    color: #fff;
-    font-size: 1.1em;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.edit-profile .btn:hover {
-    background-color: #45a049;
-}
-
-/* Footer Section */
 footer {
     background-color: #333;
     color: #fff;
@@ -195,10 +207,10 @@ footer p {
             <nav>
             <ul>
                     <li><a href="dashboard.php">Dashboard</a></li>
-                    <li><a href="goals.php">Goals</a></li>
+                    <li><a href="goals.php"class="goals">Goals</a></li>
                     <li><a href="metrics.php">Metrics</a></li>
                     <li><a href="health.php">Health</a></li>
-                    <li><a href="profile.php"class="profile">Profile</a></li>
+                    <li><a href="profile.php">Profile</a></li>
                     <li><a href="activity.php">Activity</a></li>
                     <li><a href="workout.php">Workout</a></li>
                 </ul>
@@ -206,67 +218,53 @@ footer p {
         </div>
     </header>
 
-    <!-- Profile Section -->
-    <section class="profile-section">
+    <!-- Goals Section -->
+    <section class="goals-section">
         <div class="container">
-            <h2>Your Profile</h2>
-            <p>Update your personal details and fitness preferences here.</p>
+            <h2>Your Fitness Goals</h2>
+            <p>Set your fitness goals and track your progress to stay motivated!</p>
 
-            <!-- Profile Overview -->
-            <div class="profile-overview">
-                <div class="profile-card">
-                    <h3>Name</h3>
-                    <p>John Doe</p>
+            <!-- Goals List -->
+            <div class="goals-list">
+                <div class="goal-card">
+                    <h3>Lose Weight</h3>
+                    <p>Target: 5 kg</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                    <button class="btn">Update Goal</button>
                 </div>
-                <div class="profile-card">
-                    <h3>Age</h3>
-                    <p>29</p>
+
+                <div class="goal-card">
+                    <h3>Run 5 km</h3>
+                    <p>Target: Run 5 km within 30 minutes</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 70%"></div>
+                    </div>
+                    <button class="btn">Update Goal</button>
                 </div>
-                <div class="profile-card">
-                    <h3>Gender</h3>
-                    <p>Male</p>
-                </div>
-                <div class="profile-card">
-                    <h3>Height</h3>
-                    <p>5'9" (175 cm)</p>
-                </div>
-                <div class="profile-card">
-                    <h3>Weight</h3>
-                    <p>75 kg</p>
-                </div>
-                <div class="profile-card">
-                    <h3>Target Weight</h3>
-                    <p>70 kg</p>
+
+                <div class="goal-card">
+                    <h3>Improve Strength</h3>
+                    <p>Target: Increase bench press by 10 kg</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 60%"></div>
+                    </div>
+                    <button class="btn">Update Goal</button>
                 </div>
             </div>
 
-            <!-- Edit Profile Form -->
-            <div class="edit-profile">
-                <h3>Edit Profile</h3>
+            <!-- Add New Goal Section -->
+            <div class="add-goal">
+                <h3>Add New Goal</h3>
                 <form action="#" method="post">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" value="John Doe" required>
+                    <label for="goal-name">Goal Name</label>
+                    <input type="text" id="goal-name" placeholder="e.g., Lose Weight" required>
 
-                    <label for="age">Age</label>
-                    <input type="number" id="age" value="29" required>
+                    <label for="goal-target">Target</label>
+                    <input type="text" id="goal-target" placeholder="e.g., 5 kg" required>
 
-                    <label for="gender">Gender</label>
-                    <select id="gender" required>
-                        <option value="male" selected>Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
-
-                    <label for="height">Height (cm)</label>
-                    <input type="number" id="height" value="175" required>
-
-                    <label for="weight">Weight (kg)</label>
-                    <input type="number" id="weight" value="75" required>
-
-                    <label for="target-weight">Target Weight (kg)</label>
-                    <input type="number" id="target-weight" value="70" required>
-
-                    <button type="submit" class="btn">Save Changes</button>
+                    <button type="submit" class="btn">Add Goal</button>
                 </form>
             </div>
         </div>

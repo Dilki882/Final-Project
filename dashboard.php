@@ -3,217 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health and Fitness Tracking Dashboard</title>
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard - Health & Fitness Tracker</title>
+    <link rel="stylesheet" href="dashboard.css">
     <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+        /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
 
-        /* Header Section */
-        header {
-            background-color: #90EE90;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-        header img {
-            max-width: 150px;
-            max-height: 150px;
-            display: block;
-            margin: 0 auto 20px auto;
-            border-radius: 8px;
-        }
+/* Header Section */
+header {
+    background-color: #4CAF50;
+    padding: 20px 0;
+}
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
+header h1 {
+    color: #fff;
+    font-size: 2.5em;
+}
 
-        nav ul li {
-            margin: 0 15px;
-        }
+header nav ul {
+    list-style-type: none;
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
 
-        nav ul li a:hover {
-            color: #f39c12;
-        }
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        /* Dashboard Section */
-        #dashboard {
-            padding: 40px 20px;
-            background-color: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            margin: 30px 0;
-            border-radius: 8px;
-        }
+header nav ul li a:hover {
+    text-decoration: underline;
+}
 
-        #dashboard h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+header nav ul li a.active {
+    text-decoration: underline;
+}
 
-        .card {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
+/* Workout Section */
+.workout-section {
+    padding: 60px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-        .card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
+.workout-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .card p {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
 
-        canvas {
-            width: 100%;
-            height: 300px;
-        }
+p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+    margin-bottom: 40px;
+}
 
-        /* Footer Section */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
+/* Workout Overview */
+.workout-overview {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+}
 
-        footer p {
-            margin: 0;
-        }
+.workout-card {
+    background-color: #f9f9f9;
+    padding: 30px;
+    width: 22%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
+.workout-card:hover {
+    transform: translateY(-10px);
+}
 
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
+.workout-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
 
-            nav ul li {
-                margin: 10px 0;
-            }
+.workout-card p {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
 
-            #dashboard h2 {
-                font-size: 1.8rem;
-            }
+.progress {
+    background-color: #ddd;
+    border-radius: 5px;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
 
-            .card {
-                padding: 15px;
-                margin-bottom: 20px;
-            }
+.progress-bar {
+    background-color: #4CAF50;
+    height: 100%;
+    border-radius: 5px;
+}
 
-            .card h3 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+.workout-card span {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Workout Log */
+.workout-log {
+    margin-top: 40px;
+}
+
+.workout-log table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.workout-log table th, .workout-log table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.workout-log table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.workout-log table td {
+    color: #555;
+}
+
+/* Add New Workout Form */
+.add-workout {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.add-workout h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.add-workout form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.add-workout label {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.add-workout input {
+    padding: 10px;
+    font-size: 1.1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-workout input:focus {
+    border-color: #4CAF50;
+}
+
+.add-workout .btn {
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 1.1em;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-workout .btn:hover {
+    background-color: #45a049;
+}
+
+/* Footer Section */
+footer {
+    background-color: #4CAF50;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+}
+
+footer p {
+    font-size: 1.2em;
+}
+
+        </style>
 </head>
 <body>
-
     <!-- Header Section -->
     <header>
         <div class="container">
-            <img src="../images/main-logo.jpeg" alt="Health and Fitness Logo">
-            <h1>Health and Fitness Tracking Dashboard</h1>
+            <h1>Health & Fitness Tracker</h1>
             <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="metrics.html">Metrics</a></li>
-                    <li><a href="goal.html">Goals</a></li>
-                    <li><a href="health.html">Health</a></li>
-                    <li><a href="workout.html">Workouts</a></li>
+            <<ul>
+                    <li><a href="dashboard.php"class="dashboard">Dashboard</a></li>
+                    <li><a href="goals.php">Goals</a></li>
+                    <li><a href="metrics.php">Metrics</a></li>
+                    <li><a href="health.php">Health</a></li>
+                    <li><a href="profile.php">Profile</a></li>
+                    <li><a href="activity.php">Activity</a></li>
+                    <li><a href="workout.php">Workout</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Dashboard Section -->
-    <section id="dashboard">
+    <section class="dashboard-section">
         <div class="container">
-            <h2>Your Health Dashboard</h2>
+            <h2>Welcome to Your Dashboard</h2>
+            <p>Stay motivated! Track your fitness progress, goals, and activity here.</p>
 
-            <!-- Health Overview -->
-            <div class="card">
-                <h3>Today's Health Overview</h3>
-                <p><strong>Steps:</strong> 8,500 steps</p>
-                <p><strong>Calories Burned:</strong> 450 kcal</p>
-                <p><strong>Water Intake:</strong> 2.5 L</p>
+            <!-- Stats Overview -->
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <h3>Steps Today</h3>
+                    <p>10,350 Steps</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                    <span>Target: 12,000 Steps</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Calories Burned</h3>
+                    <p>350 kcal</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%;"></div>
+                    </div>
+                    <span>Target: 500 kcal</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Minutes</h3>
+                    <p>45 mins</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                    <span>Target: 50 mins</span>
+                </div>
             </div>
 
-            <!-- Progress Chart -->
-            <div class="card">
-                <h3>Progress Chart</h3>
-                <canvas id="progressChart"></canvas>
+            <!-- Activity Summary -->
+            <div class="activity-summary">
+                <h3>Recent Activity</h3>
+                <div class="activity-card">
+                    <h4>Running</h4>
+                    <p>30 minutes, 300 kcal</p>
+                </div>
+                <div class="activity-card">
+                    <h4>Strength Training</h4>
+                    <p>45 minutes, 400 kcal</p>
+                </div>
+                <div class="activity-card">
+                    <h4>Cycling</h4>
+                    <p>60 minutes, 500 kcal</p>
+                </div>
             </div>
 
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="action-card">
+                    <h4>Track New Activity</h4>
+                    <a href="activity.html" class="btn">Log Activity</a>
+                </div>
+                <div class="action-card">
+                    <h4>View Goals</h4>
+                    <a href="goals.html" class="btn">View Goals</a>
+                </div>
+                <div class="action-card">
+                    <h4>Start a Workout</h4>
+                    <a href="workout.html" class="btn">Start Workout</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer Section -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Health and Fitness Tracking System. All rights reserved.</p>
+            <p>&copy; 2024 Health & Fitness Tracker. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Chart.js Script for Progress Chart -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('progressChart').getContext('2d');
-        const progressChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                datasets: [{
-                    label: 'Steps Walked (in 1000s)',
-                    data: [7, 8, 6, 7, 9, 8, 10],
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    tension: 0.1,
-                    fill: false
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
-
 </body>
 </html>

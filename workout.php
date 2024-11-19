@@ -3,283 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health and Tracking System</title>
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workout - Health & Fitness Tracker</title>
+    <link rel="stylesheet" href="workout.css">
     <style>
-        /* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    /* Global Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 /* Header Section */
 header {
-    background-color: #333;
-    color: white;
+    background-color: #4CAF50;
     padding: 20px 0;
-    text-align: center;
 }
 
-header img {
-    max-width: 150px;
-    margin-bottom: 20px;
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    color: #fff;
+    font-size: 2.5em;
 }
 
-nav ul {
+header nav ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
 }
 
-nav ul li {
+header nav ul li {
+    display: inline;
     margin: 0 15px;
 }
 
-nav ul li a {
-    color: white;
+header nav ul li a {
+    color: #fff;
     text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s;
+    font-weight: bold;
 }
 
-nav ul li a:hover {
-    color: #f39c12;
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+header nav ul li a.active {
+    text-decoration: underline;
 }
 
 /* Workout Section */
-main {
-    padding: 40px 20px;
+.workout-section {
+    padding: 60px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.workout-tracking h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.workout-tracking p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.workout-tracking form {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+.workout-section .container {
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.workout-tracking form label {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    display: block;
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
-.workout-tracking form input {
-    padding: 10px;
-    margin-bottom: 15px;
-    width: 100%;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+    margin-bottom: 40px;
 }
 
-.workout-tracking form button {
-    padding: 12px 25px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* Workout Overview */
+.workout-overview {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
-.workout-tracking form button:hover {
-    background-color: #45a049;
-}
-
-/* Recent Workouts Table */
-.workout-tracking table {
-    width: 100%;
-    margin-top: 30px;
-    border-collapse: collapse;
-    background-color: white;
+.workout-card {
+    background-color: #f9f9f9;
+    padding: 30px;
+    width: 22%;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-.workout-tracking table th, .workout-tracking table td {
+.workout-card:hover {
+    transform: translateY(-10px);
+}
+
+.workout-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.workout-card p {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.progress {
+    background-color: #ddd;
+    border-radius: 5px;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    background-color: #4CAF50;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.workout-card span {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Workout Log */
+.workout-log {
+    margin-top: 40px;
+}
+
+.workout-log table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.workout-log table th, .workout-log table td {
     padding: 12px;
     text-align: center;
     border: 1px solid #ddd;
 }
 
-.workout-tracking table th {
-    background-color: #f39c12;
-    color: white;
-    font-size: 1.1rem;
+.workout-log table th {
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-.workout-tracking table td {
-    font-size: 1rem;
+.workout-log table td {
+    color: #555;
 }
 
-.workout-tracking table tr:nth-child(even) {
+/* Add New Workout Form */
+.add-workout {
     background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
 }
 
-.workout-tracking table tr:hover {
-    background-color: #f1f1f1;
+.add-workout h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
-/* Footer Section */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
+.add-workout form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-footer p {
-    margin: 0;
+.add-workout label {
+    font-size: 1.2em;
+    color: #555;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    .workout-tracking form {
-        padding: 20px;
-        margin: 0 15px;
-    }
-
-    .workout-tracking form label,
-    .workout-tracking form input,
-    .workout-tracking form button {
-        font-size: 1rem;
-    }
-
-    .workout-tracking table th, .workout-tracking table td {
-        font-size: 1rem;
-        padding: 8px;
-    }
+.add-workout input {
+    padding: 10px;
+    font-size: 1.1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-</style>
+.add-workout input:focus {
+    border-color: #4CAF50;
+}
+
+.add-workout .btn {
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 1.1em;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-workout .btn:hover {
+    background
+}
+    </style>
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="container">
-             <!-- Logo image added here -->
-             <img src="../images/main-logo-black.png" alt="Health and Fitness Logo">
-        <h1>Health and Fitness Tracking</h1>
-        <nav>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
+            <h1>Health & Fitness Tracker</h1>
+            <nav>
+            <ul>
                     <li><a href="dashboard.php">Dashboard</a></li>
-                    <li><a href="profile.php">Profile</a></li>
+                    <li><a href="goals.php">Goals</a></li>
                     <li><a href="metrics.php">Metrics</a></li>
-                    <li><a href="goal.php">Goal</a></li>
                     <li><a href="health.php">Health</a></li>
-                    <li><a href="workout.php">Workout</a></li>
+                    <li><a href="profile.php">Profile</a></li>
+                    <li><a href="activity.php">Activity</a></li>
+                    <li><a href="workout.php"class="workout">Workout</a></li>
                 </ul>
             </nav>
         </div>
-</header>
+    </header>
 
-<!-- Workout Section -->
-<main>
-        <section class="workout-tracking">
+    <!-- Workout Section -->
+    <section class="workout-section">
+        <div class="container">
             <h2>Your Workout</h2>
-            <p>Track your daily exercises and progress here.</p>
+            <p>Track your workout routines, log your exercises, and stay fit!</p>
 
-            <form action="workout.php" method="POST">
-                <label for="exercise-name">Exercise Name:</label>
-                <input type="text" id="exercise-name" name="exercise_name" required><br>
+            <!-- Workout Overview -->
+            <div class="workout-overview">
+                <div class="workout-card">
+                    <h3>Today's Workout</h3>
+                    <p>Duration: 60 min</p>
+                    <p>Calories Burned: 500 kcal</p>
+                    <p>Exercises: 5</p>
+                </div>
 
-                <label for="sets">Sets:</label>
-                <input type="number" id="sets" name="sets" min="1" required><br>
+                <div class="workout-card">
+                    <h3>Workout Goal</h3>
+                    <p>Target: 4x per week</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 50%"></div>
+                    </div>
+                    <span>2/4 Workouts Completed</span>
+                </div>
+            </div>
 
+            <!-- Workout Log -->
+            <div class="workout-log">
+                <h3>Workout Log</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Workout Type</th>
+                            <th>Duration (min)</th>
+                            <th>Calories Burned</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-11-17</td>
+                            <td>Running</td>
+                            <td>30</td>
+                            <td>300 kcal</td>
+                        </tr>
+                        <tr>
+                            <td>2024-11-16</td>
+                            <td>Strength Training</td>
+                            <td>45</td>
+                            <td>400 kcal</td>
+                        </tr>
+                        <tr>
+                            <td>2024-11-15</td>
+                            <td>Cycling</td>
+                            <td>60</td>
+                            <td>500 kcal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                <label for="reps">Reps per Set:</label>
-                <input type="number" id="reps" name="reps" min="1" required><br>
+            <!-- Add New Workout -->
+            <div class="add-workout">
+                <h3>Add New Workout</h3>
+                <form action="#" method="post">
+                    <label for="workout-type">Workout Type</label>
+                    <input type="text" id="workout-type" placeholder="e.g., Running, Cycling, Strength Training" required>
 
+                    <label for="workout-duration">Duration (minutes)</label>
+                    <input type="number" id="workout-duration" placeholder="e.g., 30" required>
 
-                <label for="weight">Weight (kg):</label>
-                <input type="number" id="weight" name="weight" step="0.1" required><br>
+                    <label for="calories-burned">Calories Burned</label>
+                    <input type="number" id="calories-burned" placeholder="e.g., 300" required>
 
+                    <button type="submit" class="btn">Log Workout</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-                <label for="duration">Duration (minutes):</label>
-                <input type="number" id="duration" name="duration" step="1" required><br>
-
-
-                <button type="submit">Log Workout</button>
-            </form>
-
-            <h3>Recent Workouts</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Exercise</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
-                        <th>Weight (kg)</th>
-                        <th>Duration (min)</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Push-ups</td>
-                        <td>3</td>
-                        <td>15</td>
-                        <td>Bodyweight</td>
-                        <td>10</td>
-                        <td>2024-11-15</td>
-                    </tr>
-                    <tr>
-                        <td>Squats</td>
-                        <td>4</td>
-                        <td>20</td>
-                        <td>50</td>
-                        <td>30</td>
-                        <td>2024-11-14</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
-
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 Health and Fitness Tracking System</p>
+        <div class="container">
+            <p>&copy; 2024 Health & Fitness Tracker. All rights reserved.</p>
+        </div>
     </footer>
-   
-        </body>
+</body>
 </html>
